@@ -43,6 +43,7 @@ button:hover {
 }
 
 button:active {
+  /* on click goes down 3px to simulate buttton push */
   transform: translateY(3px);
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.3);
 }
