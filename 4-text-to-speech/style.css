@@ -35,8 +35,19 @@ button {
   box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.2);
 }
 
+button:hover {
+  filter: brightness(90%);
+  
+}
+
 button:active {
+  transform: scale(.98);
   box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+  cursor: default;
+  filter: brightness(30%);
 }
 
 /* Media Queries Tablet or Smaller */
@@ -46,4 +57,8 @@ button:active {
     background-size: cover;
     background-position: center center;
   }
+
+  button {
+		box-shadow: 5px 5px 30px 20px rgba(0, 0, 0, 0.5);
+	}
 }
