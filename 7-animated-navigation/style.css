@@ -33,12 +33,12 @@ body {
 }
 
 .overlay-slide-right {
-	transition: all .4s ease-in-out;
+	transition: all 1s ease-in-out;
 	transform: translateX(0);
 }
 
 .overlay-slide-left {
-	transition: all .8s ease-in-out;
+	transition: all 1s ease-in-out;
 	transform: translateX(-100vw);
 }
 
@@ -111,10 +111,69 @@ nav li:nth-of-type(5) {
 	background-color: var(--navColor5);
 }
 
+/* --- Slide In Animation ------------------------------------ */
+.slide-in-1 {
+	animation: slide-in .4s linear .2s both;
+}
 
+.slide-in-2 {
+	animation: slide-in .4s linear .4s both;
+}
+
+.slide-in-3 {
+	animation: slide-in .4s linear .6s both;
+}
+
+.slide-in-4 {
+	animation: slide-in .4s linear .8s both;
+}
+
+.slide-in-5 {
+	animation: slide-in .4s linear 1s both;
+}
+
+@keyframes slide-in {
+	from {
+		transform: translateX(-100%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+/* --- Slide Out Animation ------------------------------------ */
+.slide-out-1 {
+	animation: slide-out .5s linear .1s both;
+}
+
+.slide-out-2 {
+	animation: slide-out .5s linear .2s both;
+}
+
+.slide-out-3 {
+	animation: slide-out .5s linear .3s both;
+}
+
+.slide-out-4 {
+	animation: slide-out .5s linear .4s both;
+}
+
+.slide-out-5 {
+	animation: slide-out .5s linear .5s both;
+}
+
+@keyframes slide-out {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-100%);
+	}
+}
 
 /* --- Menu Bars ------------------------------------ */
-
 .menu-bars {
 	position: fixed;
 	top: 1rem;
@@ -150,7 +209,6 @@ nav li:nth-of-type(5) {
 }
 
 /* --- Sections ------------------------------------ */
-
 section {
 	width: 100%;
 	height: 100vh;
