@@ -2,8 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Source+Sans+Pro:wght@400;700&display=swap');
 
 html {
-  box-sizing: border-box;
-  font-size: 62.5%;
+	box-sizing: border-box;
 }
 
 body {
@@ -14,33 +13,45 @@ body {
 	justify-content: center;
 	align-items: center;
 	font-family: 'Raleway', sans-serif;
-	font-size: 7.5rem;
+	font-size: 12px;
 }
 
 .player-container {
-  height: 312.5rem;
-  width: 250rem;
-  background: 	#a7a9ab;
+	height: 500px;
+	width: 400px;
+	background: #a7a9ab;
+	border-radius: 20px;
+	box-shadow: 9px 9px 18px #898b8c, -9px -9px 18px #c5c7ca;
 }
 
 .img-container {
+	height: 300px;
+	width: 300px;
 	position: relative;
 	top: -50px;
 	left: 50px;
 }
 
+.img-container img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+}
+
 h2 {
 	font-size: 25px;
 	text-align: center;
-  margin: 0;
+	margin: 0;
 }
 
 h3 {
 	font-size: 20px;
 	text-align: center;
 	font-weight: 400;
-  margin: 5px 0 0;
-  font-family: 'Source Sans Pro', sans-serif;
+	margin: 5px 0 0;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 /* Progress */
@@ -81,6 +92,12 @@ h3 {
 	font-size: 30px;
 	color: rgb(129, 129, 129);
 	margin-right: 30px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.fas:hover {
+	filter: brightness(80%);
 }
 
 .main-button {
@@ -91,6 +108,10 @@ h3 {
 
 /* Media Query: iPhone (Vertical) */
 @media screen and (max-width: 376px) {
+	.player-container {
+		width: 95vw;
+	}
+
 	.img-container {
 		left: 29px;
 	}
