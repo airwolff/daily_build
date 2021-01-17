@@ -9,52 +9,40 @@ const nextBtn = document.getElementById('next');
 // Music
 const songs = [
     {
-        name: 'jacinto-1',
-        displayName: 'Jacinto 1',
-        artist: 'Jacinto',
-        album: 'chemical_chords',
-    },
-    {
-        name: '02_Kick_Over_the_Statues',
-        displayName: 'Kick Over the Statues',
-        artist: 'The Redskins',
-        album: 'neither_washington_nor_moscow',
-    },
-    {
-        name: '01_Mirror_In_the_Bathroom',
+        name: '01-Mirror-In-the-Bathroom',
         displayName: 'Mirror In the Bathroom',
         artist: 'English Beat',
-        album: 'i_just_cant_stop_it',
+        album: 'i-just-cant-stop-it',
     },
     {
-        name: '01_The_Power_Is_Yours',
+        name: '01-The-Power-Is-Yours',
         displayName: 'The Power Is Yours',
         artist: 'The Redskins',
-        album: 'neither_washington_nor_moscow',
+        album: 'neither-washington-nor-moscow',
     },
     {
-        name: '01_Wild_Creatures',
+        name: '01-Wild-Creatures',
         displayName: 'Wild Creatures',
         artist: 'Neko Case',
-        album: 'the_worse_things_get',
+        album: 'the-worse-things-get',
     },
     {
-        name: '02_Night_Still_Comes',
+        name: '02-Night-Still-Comes',
         displayName: 'Night Still Comes',
         artist: 'Neko Case',
-        album: 'the_worse_things_get',
+        album: 'the-worse-things-get',
     },
     {
-        name: '03_Go_Get_Organised',
+        name: '03-Go-Get-Organised',
         displayName: 'Go Get Organised',
         artist: 'The Redskins',
-        album: 'neither_washington_nor_moscow',
+        album: 'neither-washington-nor-moscow',
     },
     {
-        name: '09_Self_Portrait_With_Electric_Brain',
+        name: '09-Self-Portrait-With-Electric-Brain',
         displayName: 'Self Portrait With Electric Brain',
         artist: 'Stereolab',
-        album: 'chemical_chords',
+        album: 'chemical-chords',
     }
 ]
 
@@ -83,11 +71,32 @@ playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 
 // Update DOM
 function loadSong(song) {
-    songTitle.textContent = songs.displayName;
-    artist.textContent = songs.artist;
-    music.src = `music/${songs.name}.mp3`;
-    albumArt.src = `img/${songs.album}.jpg`;
+    songTitle.textContent = song.displayName;
+    artist.textContent = song.artist;
+    music.src = `music/${song.name}.mp3`;
+    albumArt.src = `img/${song.album}.jpg`;
+}
+
+// Current Song
+let songIndex = 0;
+
+// Next Song
+function nextSong() {
+    songIndex++;
+    loadSong(songs[songIndex]);
+    playSong();
+}
+
+// Previous Song
+function prevSong() {
+    songIndex--;
+    loadSong(songs[songIndex]);
+    playSong();
 }
 
 // On Load - First Song
-loadSong(songs[0]);
+loadSong(songs[songIndex]);
+
+// Event Listeners
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
