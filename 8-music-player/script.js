@@ -2,6 +2,10 @@ const albumArt = document.getElementById('albumArt');
 const songTitle = document.getElementById('songTitle');
 const artist = document.getElementById('artist');
 const music = document.querySelector('audio');
+const progressContainer = document.getElementById('progress-container');
+const progress = document.getElementById('progress');
+const currentTimeElement = document.getElementById('current-time');
+const durationElement = document.getElementById('duration');
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
@@ -77,19 +81,26 @@ function loadSong(song) {
     albumArt.src = `img/${song.album}.jpg`;
 }
 
+
 // Current Song
 let songIndex = 0;
-
-// Next Song
-function nextSong() {
-    songIndex++;
-    loadSong(songs[songIndex]);
-    playSong();
-}
 
 // Previous Song
 function prevSong() {
     songIndex--;
+    if (songIndex < 0) {
+        songIndex = songs.length - 1;
+    }
+    loadSong(songs[songIndex]);
+    playSong();
+}
+
+// Next Song
+function nextSong() {
+    songIndex++;
+    if (songIndex > songs.length - 1) {
+        songIndex = 0;
+    }
     loadSong(songs[songIndex]);
     playSong();
 }
@@ -97,6 +108,27 @@ function prevSong() {
 // On Load - First Song
 loadSong(songs[songIndex]);
 
+// Update Progress Bar
+function updateProgressBar(event) {
+    if (isPlaying) {
+        const { duration, currentTime } = event.srcElement;
+        // Update progress bar
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        // Calculate duration
+        const durationMinutes = Math.floor(duration / 60);
+        let durationSeconds = Math.floor(duration % 60);
+        if (durationSeconds < 10) {
+            durationSeconds = `0${durationSeconds}`;
+        }
+        // Delay to avoid NaN
+        if (durationSeconds) {
+            durationElement.textContent = `${durationMinutes}:${durationSeconds}`;
+        }
+    }
+}
+
 // Event Listeners
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+music.addEventListener('timeupdate', updateProgressBar);
