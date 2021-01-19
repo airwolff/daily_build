@@ -78,3 +78,8 @@ function updateProgressBar(event) {
         }
     }
 }
+
+// IF we have a value, than run
+if (durationSeconds) {
+    durationElement.textContent = `${durationMinutes}:${durationSeconds}`;
+}
