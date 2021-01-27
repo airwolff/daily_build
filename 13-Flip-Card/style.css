@@ -6,7 +6,11 @@
 	--level-three: translateZ(6rem);
 
 	--fw-normal: 400;
-	--fw-bold: 700;
+  --fw-bold: 700;
+  
+  --clr: #d6e4f9;
+
+  --spacer: 1em;
 }
 
 *,
@@ -32,7 +36,6 @@ body {
 	position: relative;
 	padding: 5rem;
   transition: transform 3s;
-  background: lightgray;
 	transform-style: preserve-3d;
 }
 
@@ -42,31 +45,49 @@ body {
 
 .card__front,
 .card__back {
+  display: grid;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 2rem;
+	padding: 15rem 3rem;
 	backface-visibility: hidden;
-	transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  align-content: center;
 }
 
 .card__front {
-	background: lightgreen;
-	display: grid;
+  background-color: var(-clr);
+  background-image: url('https://images-na.ssl-images-amazon.com/images/I/81rmEnZjANL._AC_SY879_.jpg');
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: #fff;
+}
+
+.card__front::before, .card__back::before {
+  content: '';
+  position: absolute;
+  top: var(--spacer);
+  bottom: var(--spacer);
+  left: var(--spacer);
+  right: var(--spacer);
+  border: 3px solid lightgray;
+  transform: var(--level-one);
 }
 
 .card__title {
 	font-size: 3.5rem;
 	transform: var(--level-three);
 	order: 2;
-	text-transform: uppercase;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px black;
 }
 
 .card__subtitle {
 	transform: var(--level-two);
-	text-transform: uppercase;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px black;
 	letter-spacing: 4px;
 	font-size: 0.75rem;
 	font-weight: var(--fw-bold);
@@ -74,9 +95,15 @@ body {
 }
 
 .card__body {
-	transform: var(--level-two);
+  transform: var(--level-two);
+  font-weight: var(fw-normal);
+  font-size: 1.5rem;
+  line-height: 1.6;
 }
 
 .card__back {
-	transform: rotateY(0.5turn);
+  transform: rotateY(0.5turn);
+  color: #fff;
+  background: #333;
+  text-shadow: 0 0 5px black;
 }
