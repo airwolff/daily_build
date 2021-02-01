@@ -9,8 +9,8 @@ body {
 	min-height: 100vh;
 	overflow-y: hidden;
 	display: flex;
-  align-items: center;
-  font-family: 'Righteous', cursive;
+	align-items: center;
+	font-family: 'Righteous', cursive;
 }
 
 /* Video Background */
@@ -61,7 +61,7 @@ h1 {
 	font-size: 35px;
 	text-align: center;
 	margin-top: 0;
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 /* Form */
@@ -71,8 +71,8 @@ h1 {
 
 label {
 	font-weight: bold;
-  margin-left: 10px;
-  font-family: 'Righteous', cursive;
+	margin-left: 10px;
+	font-family: 'Righteous', cursive;
 }
 
 input {
@@ -82,8 +82,8 @@ input {
 	border: 1px solid #ccc;
 	border-radius: 20px;
 	background: #fff;
-  outline: none;
-  font-family: 'Raleway', sans-serif;
+	outline: none;
+	font-family: 'Raleway', sans-serif;
 }
 
 /* Button */
@@ -100,12 +100,22 @@ button {
 	outline: none;
 }
 
+button:hover {
+	filter: brightness(120%);
+}
+
+button:active {
+	transform: scale(0.98);
+	box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
 /* Countdown */
 ul {
 	margin-left: -45px;
 }
 
 li {
+	display: inline-block;
 	font-size: 30px;
 	list-style-type: none;
 	padding: 10px;
@@ -122,6 +132,33 @@ li span {
 .complete {
 	position: relative;
 	top: 60px;
+}
+
+.complete-title {
+	animation: complete 4s infinite;
+}
+
+@keyframes complete {
+	0% {
+		color: rgb(247, 6, 6);
+	}
+
+	25% {
+		color: rgb(235, 247, 6);
+	}
+
+	50% {
+		color: rgb(30, 6, 247);
+		transform: scale(1.5);
+	}
+
+	75% {
+		color: rgb(247, 6, 171);
+	}
+
+	100% {
+		
+	}
 }
 
 /* Media Query: Large Smartphone (Vertical) */
